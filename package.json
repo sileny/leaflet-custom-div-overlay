@@ -1,0 +1,36 @@
+{
+  "name": "leaflet-custom-div-overlay",
+  "version": "1.0.0",
+  "description": "leaflet-custom-div-overlay",
+  "main": "./src/index.ts",
+  "type": "module",
+  "module": "dist/leaflet-custom-div-overlay.es.js",
+  "unpkg": "dist/leaflet-custom-div-overlay.global.js",
+  "jsdelivr": "dist/leaflet-custom-div-overlay.global.js",
+  "browser": "dist/leaflet-custom-div-overlay.umd.js",
+  "scripts": {
+    "build": "rollup --environment BUILD:production -c rollup.config.js"
+  },
+  "engines": {
+    "node": ">=16.5.0"
+  },
+  "keywords": [
+    "custom-div-overlayer",
+    "leaflet-custom-div"
+  ],
+  "files": [
+    "dist",
+    "examples"
+  ],
+  "author": "sunsilent",
+  "license": "MIT",
+  "devDependencies": {
+    "@rollup/plugin-typescript": "^11.1.6",
+    "@types/leaflet": "^1.9.8",
+    "rollup": "^4.12.0",
+    "tslib": "^2.6.2"
+  },
+  "peerDependencies": {
+    "leaflet": "^1.9.4"
+  }
+}
