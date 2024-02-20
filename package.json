@@ -1,7 +1,7 @@
 {
   "name": "leaflet-custom-div-overlay",
-  "version": "1.0.1",
-  "description": "leaflet-custom-div-overlay",
+  "version": "1.0.0",
+  "description": "A leaflet plugin that supports custom divs.",
   "main": "./src/index.ts",
   "type": "module",
   "module": "dist/leaflet-custom-div-overlay.es.js",
@@ -9,13 +9,14 @@
   "jsdelivr": "dist/leaflet-custom-div-overlay.global.js",
   "browser": "dist/leaflet-custom-div-overlay.umd.js",
   "scripts": {
-    "build": "rollup --environment BUILD:production -c rollup.config.js"
+    "build": "rollup --environment BUILD:production -c rollup.config.js",
+    "prepublishOnly": "npm run build"
   },
   "engines": {
     "node": ">=16.5.0"
   },
   "keywords": [
-    "custom-div-overlayer",
+    "leaflet-custom-div-overlay",
     "leaflet-custom-div"
   ],
   "files": [

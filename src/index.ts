@@ -133,10 +133,14 @@ const DivOverlay = L.Layer.extend({
     this.setContent(this.options.content);
   },
 
-  setContent(content: Function | string) {
+  // @method setContent(content: Function | string | HTMLElement): this
+  // - `Function` If it is a Function type, execute the function and add the result of the function to the overlay as a DOMString.
+  // - `string` If it is a string type, it is added to the overlay as DOMString.
+  // - `HTMLElement` If it is a string type, it is added to the overlay as DOMString.
+  setContent(content: Function | string | HTMLElement) {
     content = (typeof content === 'function') ? content(this) : content;
-    if (!content) { return; }
-    if (!this._div) { return; }
+    if (!content) { return this; }
+    if (!this._div) { return this; }
 
     if (typeof content === 'string') {
       this._div.innerHTML = content;
@@ -146,6 +150,8 @@ const DivOverlay = L.Layer.extend({
       }
       this._div.appendChild(content);
     }
+
+    return this;
   },
 
   _animateZoom(e: ZoomAnimEvent) {
@@ -163,7 +169,7 @@ const DivOverlay = L.Layer.extend({
     );
     const size = bounds.getSize();
 
-    // 有min属性断言
+    // non-null assertion
     L.DomUtil.setPosition(div, bounds.min!);
 
     div.style.width  = size.x + 'px';
