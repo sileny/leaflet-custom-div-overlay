@@ -31,8 +31,11 @@
   const groupLayer = new L.FeatureGroup();
   map.addLayer(groupLayer);
 
-  const img = document.createElement('img');
-  img.src = '//www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png';
+  const div = document.createElement('div');
+  div.innerText = 'lorem';
+  div.style.width = '50px';
+  div.style.color = '#fff';
+  div.style.backgroundColor = '#f00';
 
   const customDiv = L.customDivOverlay([
     [51.7500000, 19.4666700],
@@ -41,15 +44,16 @@
     zIndex: 460,
     interactive: true,
     className: 'my-custom-div-overlay',
-    content: img,
+    content: div,
   });
 
   customDiv.addTo(groupLayer);
   customDiv.on('mouseover', (event) => {
-    console.log(event);
+    div.style.color = '#00f';
   });
   customDiv.on('mouseout', (event) => {
-    customDiv.setContent(img);
+    div.style.color = '#fff';
+    customDiv.setContent(div);
   });
 </script>
 </body>
