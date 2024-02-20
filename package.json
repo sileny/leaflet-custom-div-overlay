@@ -1,6 +1,6 @@
 {
   "name": "leaflet-custom-div-overlay",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "leaflet-custom-div-overlay",
   "main": "./src/index.ts",
   "type": "module",
