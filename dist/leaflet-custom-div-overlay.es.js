@@ -111,13 +111,17 @@ var DivOverlay = L.Layer.extend({
         }
         this.setContent(this.options.content);
     },
+    // @method setContent(content: Function | string | HTMLElement): this
+    // - `Function` If it is a Function type, execute the function and add the result of the function to the overlay as a DOMString.
+    // - `string` If it is a string type, it is added to the overlay as DOMString.
+    // - `HTMLElement` If it is a string type, it is added to the overlay as DOMString.
     setContent: function (content) {
         content = (typeof content === 'function') ? content(this) : content;
         if (!content) {
-            return;
+            return this;
         }
         if (!this._div) {
-            return;
+            return this;
         }
         if (typeof content === 'string') {
             this._div.innerHTML = content;
@@ -128,6 +132,7 @@ var DivOverlay = L.Layer.extend({
             }
             this._div.appendChild(content);
         }
+        return this;
     },
     _animateZoom: function (e) {
         var scale = this._map.getZoomScale(e.zoom);
@@ -138,7 +143,7 @@ var DivOverlay = L.Layer.extend({
         var div = this._div;
         var bounds = new L.Bounds(this._map.latLngToLayerPoint(this._bounds.getNorthWest()), this._map.latLngToLayerPoint(this._bounds.getSouthEast()));
         var size = bounds.getSize();
-        // 有min属性断言
+        // non-null assertion
         L.DomUtil.setPosition(div, bounds.min);
         div.style.width = size.x + 'px';
         div.style.height = size.y + 'px';
