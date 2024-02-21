@@ -94,5 +94,5 @@ customDiv.addTo(map);
 |`setZIndex`| `(<Number> value)` | this | Changes the zIndex of the div overlay. |
 |`getBounds`| - | `L.LatLngBounds` | Get the bounds that this customDivOverlay covers |
 |`getElement`| - | HTMLDivElement | Returns the instance of `HTMLDivElement` used by this overlay. |
-|`setContent`| `Function` or `string` or `HTMLElement` | this | - `Function` If it is a Function type, execute the function and add the result of the function to the overlay as a DOMString. <br/><br/> - `string` If it is a string type, it is added to the overlay as DOMString. <br /><br /> - `HTMLElement` If it is a string type, it is added to the overlay as DOMString. |
+|`setContent`| `Function` or `string` or `HTMLElement` | this | - `Function` If it is a Function type, execute the function and add the result of the function to the overlay as a DOMString. <br/><br/> - `string` If it is a string type, it is added to the overlay as DOMString. <br /><br /> - `HTMLElement` If it is a `HTMLElement` type, it is added to the overlay as DOMString. |
 |`getCenter`| - | `L.LatLng` | Returns the center of the overlay. |
